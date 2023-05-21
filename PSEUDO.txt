@@ -1,0 +1,22 @@
+// Brain Storm
+
+
+// We will need a timer to start when the "Start Quiz" button is clicked.
+// So, we need some event listener on the button for a click to a function called "startQuiz".
+
+// We need a function to start the quiz which will call the timer function.
+
+// The timer function should start at 75 and count down by 1 every second.
+
+// We need some way to fetch and display a random question.
+
+// We need an event listener for when the correct answer is clicked.
+// Upon a correct click, display "correct" and move to the next question.
+// If the clicked answer is wrong, display "wrong", subtract 10 seconds, and move to the next question.
+
+// We need something to keep track and store correct answers.
+
+// When the time is up, we should display a screen with their total correct answers.
+// They should be presented with an input field to enter their initials.
+
+// When the "Submit" button is clicked (this needs an event listener), we should add their initials to the highscore array.

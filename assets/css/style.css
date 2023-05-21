@@ -1,0 +1,28 @@
+* {
+  box-sizing: border-box;
+}
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+section {
+  border: 2px solid black;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+h2 {
+  font-weight: bolder;
+}
+.info-bar {
+  display: flex;
+  justify-content: space-between;
+  padding: 3%;
+}
