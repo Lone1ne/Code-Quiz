@@ -165,7 +165,7 @@ descriptionElem.addEventListener("click", function (event) {
 });
 descriptionElem.addEventListener("click", function (event) {
   if (event.target.className === "submit-button") {
-    var initials = document.querySelector(".user-input").ariaValueMax;
+    var initials = document.querySelector(".user-input").value;
     saveScore(initials, score);
   }
 });
