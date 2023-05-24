@@ -3,9 +3,9 @@ var titleElem = document.querySelector(".title");
 var descriptionElem = document.querySelector(".description");
 var startElem = document.querySelector(".start-button");
 var timeElem = document.querySelector(".time");
+var feedbackElem = document.querySelector(".feedback");
 
 //Declare Varibles
-//Create Questions array
 var questions = [
   {
     title: "How would you create a new object in JavaScript?",
@@ -74,7 +74,8 @@ startElem.textContent = "start quiz";
 function newQuestion() {
   //check if we run out of questions
   if (currentQuestionIndex >= questions.length) {
-    // handle end of questions, stop timer, show results
+    // handle end of questions, stop timer, show results,
+    gameOver();
     return;
   }
   //get the current question
@@ -99,9 +100,15 @@ function checkAnswer(choice) {
   var correctAnswer = questions[currentQuestionIndex - 1].answer;
   if (correctAnswer === choice) {
     score++;
+    feedbackElem.textContent = "Correct!";
   } else {
     timeLeft = timeLeft + penalty;
+    feedbackElem.textContent = "Incorrect!";
   }
+  //remove the feedback text after 1 second
+  setTimeout(function () {
+    feedbackElem.textContent = "";
+  }, 1000);
   newQuestion();
 }
 
@@ -111,17 +118,40 @@ function timer() {
     timeLeft--;
     timeElem.textContent = "Time: " + timeLeft;
 
-    if (timeLeft === 0) {
+    if (timeLeft <= 0) {
       clearInterval(timerInterval);
-      //do something
       gameOver();
     }
   }, 1000);
 }
-
 function startQuiz() {
   timer();
   newQuestion();
+}
+function gameOver() {
+  //display end screen
+  titleElem.textContent = "Game Over!";
+  descriptionElem.textContent = "Your score is: " + score;
+
+  //need to show an input for the user to enter their initials
+  var userInput = document.createElement("input");
+  userInput.setAttribute("placeholder", "Enter your initials here.");
+  userInput.setAttribute("class", "user-input");
+  descriptionElem.appendChild(userInput);
+
+  // create sumbit button
+  var submitButton = document.createElement("button");
+  submitButton.textContent = "Submit";
+  submitButton.setAttribute("class", "submit-button");
+  descriptionElem.appendChild(submitButton);
+}
+function saveScore(initials, score) {
+  //load scores
+  var highscores = JSON.parse(localStorage.getItem("highscores")) || [];
+  // add new score
+  highscores.push({ initials: initials, score: score });
+  //save scores
+  localStorage.setItem("highscores", JSON.stringify(highscores));
 }
 
 // Event Listeners
@@ -131,5 +161,11 @@ descriptionElem.addEventListener("click", function (event) {
   // Check if a button was clicked
   if (event.target.className === "answer-button") {
     checkAnswer(event.target.textContent);
+  }
+});
+descriptionElem.addEventListener("click", function (event) {
+  if (event.target.className === "submit-button") {
+    var initials = document.querySelector(".user-input").ariaValueMax;
+    saveScore(initials, score);
   }
 });
