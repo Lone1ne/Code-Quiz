@@ -1,22 +1,10 @@
-// Brain Storm
-
-
-// We will need a timer to start when the "Start Quiz" button is clicked.
-// So, we need some event listener on the button for a click to a function called "startQuiz".
-
-// We need a function to start the quiz which will call the timer function.
-
-// The timer function should start at 75 and count down by 1 every second.
-
-// We need some way to fetch and display a random question.
-
-// We need an event listener for when the correct answer is clicked.
-// Upon a correct click, display "correct" and move to the next question.
-// If the clicked answer is wrong, display "wrong", subtract 10 seconds, and move to the next question.
-
-// We need something to keep track and store correct answers.
-
-// When the time is up, we should display a screen with their total correct answers.
-// They should be presented with an input field to enter their initials.
-
-// When the "Submit" button is clicked (this needs an event listener), we should add their initials to the highscore array.
+//we want the question to replace the title in the title element
+  ////we need to grab the question from the array, make function to grab a new question
+  
+  //we want the answer options to be displayed in the description element and we want to add these options as buttons
+  //remove the start button
+  // when an option is clicked we need to capture it and see if it matches the questionAnswer
+  // if match, then we add points to userScore, display that they were correct in accuracy div, go to the next question
+  //if !macth then we display incorrect, -10 seconds from timeLeft, and go to the next question
+  // if timeLeft = 0, title displays Game Over, tag with users final score userScore, input for user to input initals and submit button that saves the users intials and score to the local storage and takes them to a highscore page
+  // highscore page had title of highscores, and list of highscores. a go back button and a clear highscores

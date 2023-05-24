@@ -26,3 +26,9 @@ h2 {
   justify-content: space-between;
   padding: 3%;
 }
+.btn {
+  border-radius: 10px;
+  background-color: rgb(62, 141, 167);
+  color: white;
+  padding: 2%;
+}
