@@ -125,10 +125,12 @@ function timer() {
   }, 1000);
 }
 function startQuiz() {
+  startElem.style.display = "none";
   timer();
   newQuestion();
 }
 function gameOver() {
+  timeLeft = 1;
   //display end screen
   titleElem.textContent = "Game Over!";
   descriptionElem.textContent = "Your score is: " + score;
@@ -166,6 +168,11 @@ descriptionElem.addEventListener("click", function (event) {
 descriptionElem.addEventListener("click", function (event) {
   if (event.target.className === "submit-button") {
     var initials = document.querySelector(".user-input").value;
-    saveScore(initials, score);
+    if (initials !== "") {
+      saveScore(initials, score);
+      window.location.href = "highscores.html";
+    } else {
+      alert("Please enter in your initials to continue.");
+    }
   }
 });

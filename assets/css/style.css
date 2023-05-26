@@ -1,34 +1,114 @@
+/* CSS VARIABLES */
+
+:root {
+  --light: #f4f4f4;
+  --dark: #333;
+  --button-color: #5cb85c;
+  --button-hover: #4cae4c;
+}
+
+/* Universal Selectors */
+
 * {
   box-sizing: border-box;
 }
-main {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-section {
-  border: 2px solid black;
-}
-.content {
+
+/* Element Selectors */
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: var(--light);
+  margin: 0;
+  padding: 0;
+  color: var(--dark);
   display: flex;
   flex-direction: column;
-  justify-content: center;
+}
+h2 {
+  width: 100%;
+}
+
+/* Class Selectors */
+
+.container {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  max-width: 800px;
+}
+
+.title {
+  font-size: 2em;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.description {
+  font-size: 1.2em;
   margin: 0 auto;
+  padding: 20px;
+}
+
+.time {
+  align-self: flex-end;
+  padding: 10px;
+}
+
+.answer-button,
+.start-button,
+.submit-button,
+.back-button,
+.clear-button {
+  display: block;
+  width: 200px;
+  margin: 10px auto;
+  padding: 10px;
+  background-color: var(--button-color);
+  color: #fff;
+  border: none;
+  cursor: pointer;
   text-align: center;
 }
 
-h2 {
-  font-weight: bolder;
+.answer-button:hover,
+.start-button:hover,
+.submit-button:hover,
+.back-button:hover,
+.clear-button:hover {
+  background-color: var(--button-hover);
 }
+
+.feedback {
+  font-weight: bold;
+  margin: 2% auto;
+  text-align: center;
+  width: 100%;
+  max-width: 200px;
+}
+
 .info-bar {
   display: flex;
   justify-content: space-between;
   padding: 3%;
 }
-.btn {
-  border-radius: 10px;
-  background-color: rgb(62, 141, 167);
+.content {
+  max-width: 800px;
+  margin: 2% auto;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: #333;
   color: white;
+  border-radius: 5px;
   padding: 2%;
+}
+.user-input {
+  width: 100%;
+  max-width: 200px;
+  margin: 3% 0;
+}
+.highscores-list {
+  width: 100%;
+  list-style: decimal;
 }
