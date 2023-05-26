@@ -38,4 +38,4 @@ THEN I can save my initials and score
 
 The following image shows the web application's appearance:
 
-![The Codeing Quiz application displays a green start button to start the quiz, a view highscores link, and a timer.](./Assets/images/screenshot.png)
+![The Codeing Quiz application displays a green start button to start the quiz, a view highscores link, and a timer.](./assets/images/screenshot.png)
